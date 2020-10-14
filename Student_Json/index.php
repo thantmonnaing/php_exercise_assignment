@@ -299,9 +299,9 @@
 					<td>${value.gender}</td>
 					<td>${value.address}</td>
 					<td>
-					<button class="btn btn-warning btn_detail" data-id="${j}" data-toggle="modal" data-target="#DetailModal">Detail</button>
+					<button class="btn btn-success btn_detail" data-id="${j}" data-toggle="modal" data-target="#DetailModal">Detail</button>
 
-					<button class="btn btn-primary btn_edit" data-id="${j}">Edit</button>
+					<button class="btn btn-warning btn_edit" data-id="${j}">Edit</button>
 
 					<button class="btn btn-danger btn_delete" data-id="${j}">Delete</button>
 					</td>
