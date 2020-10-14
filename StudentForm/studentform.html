@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Form</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container" id="stu_register">
+		<form class="my-5">
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label for="stu_profile">Profile</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<input type="file" class="form-control-file" id="stu_profile">					
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label for="stu_name">Name</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<input type="text" class="form-control" id="stu_name" placeholder="Enter Name">
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label for="stu_email">Email</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<input type="email" class="form-control" id="stu_email" placeholder="Enter Email">
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label>Gender</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<div class="form-check">
+					  	<input class="form-check-input" type="radio" name="stu_gender" id="stu_male" value="male" checked>
+					  	<label class="form-check-label" for="stu_male">
+					    Male
+					  	</label>
+					</div>
+					<div class="form-check">
+					  	<input class="form-check-input" type="radio" name="stu_gender" id="stu_female" value="female">
+					  	<label class="form-check-label" for="stu_female">
+					    Female
+					  	</label>
+					</div>
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label for="stu_address">Address</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<textarea class="form-control" id="stu_address" rows="5"></textarea>
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<button type="button" class="btn btn-primary" id="btn_save">Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- edit -->
+
+	<div class="container" id="edit_register">
+		<form class="my-5">
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label for="edit_profile">Profile</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10" >
+					<div class="input-group">
+						<div class="input-group-prepend">
+						    <span class="input-group-text">Old Profile</span>
+						 </div>
+						<div class="custom-file">
+						    <input type="file" class="custom-file-input" id="edit_profile">
+						    <label class="custom-file-label" for="inputGroupFile04">New Profile</label>
+						 </div>
+					</div>
+					<img src="" width="100px" height="70px" id="add_image">
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label for="edit_name">Name</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<input type="text" class="form-control" id="edit_name" placeholder="Enter Name">
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label for="edit_email">Email</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<input type="email" class="form-control" id="edit_email" placeholder="Enter Email">
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label>Gender</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<div class="form-check">
+					  	<input class="form-check-input" type="radio" name="edit_gender" id="edit_male" value="male" checked>
+					  	<label class="form-check-label" for="edit_male">
+					    Male
+					  	</label>
+					</div>
+					<div class="form-check">
+					  	<input class="form-check-input" type="radio" name="edit_gender" id="edit_female" value="female">
+					  	<label class="form-check-label" for="edit_female">
+					    Female
+					  	</label>
+					</div>
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<label for="edit_address">Address</label>
+				</div>
+				<div class="col-9 col-sm-9 col-md-10 col-lg-10">
+					<textarea class="form-control" id="edit_address" rows="5"></textarea>
+				</div>
+			</div>
+			<div class="row m-4">
+				<div class="col-3 col-sm-3 col-md-2 col-lg-2">
+					<button type="button" class="btn btn-primary" id="btn_update">Update</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- table -->
+
+	<div class="container-fluid">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Gender</th>
+					<th scope="col">Address</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+	
+
+	<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#edit_register").hide();
+			var count = 0;
+			$("#btn_save").click(function(){
+				var html="";
+				count++;				
+				var profile = $("#stu_profile").val();
+				console.log("profile = "+profile);
+				var name = $("#stu_name").val();
+				var email = $("#stu_email").val();
+				var gender = $("input[name='stu_gender']:checked").val();
+				var address = $("#stu_address").val();
+
+				html = `
+					<tr>
+						<td>${count}</td>
+						<td>${name}</td>
+						<td>${email}</td>
+						<td>${gender}</td>
+						<td>${address}</td>
+						<td>
+							<button class="btn btn-primary btn_detail" data-profile="${profile}" data-name="${name}" data-email="${email}" data-gender="${gender}" data-address="${address}">Detail</button>
+							<button class="btn btn-warning btn_edit" data-profile="${profile}" data-name="${name}" data-email="${email}" data-gender="${gender}" data-address="${address}">Edit</button>
+							<button class="btn btn-danger btn_delete" data-profile="${profile}" data-name="${name}" data-email="${email}" data-gender="${gender}" data-address="${address}">Delete</button>
+						</td>
+					</tr>
+				`;
+
+				$("tbody").append(html);
+
+			})
+
+			$("tbody").on('click','.btn_edit',function(){
+				$("#edit_register").show();
+				$("#stu_register").hide();
+				$("#add_image").attr("src", "profile.jpg")
+				$("#edit_name").val($(this).data('name'));
+				$("#edit_email").val($(this).data('email'));
+				$("#edit_address").val($(this).data('address'));
+
+				var gender = $(this).data('gender');
+				if(gender == "male"){
+					$("#edit_male").prop('checked','checked');
+				}else{
+					$("#edit_female").prop('checked','checked');
+				}
+			})
+		})
+	</script>
+</body>
+</html>
