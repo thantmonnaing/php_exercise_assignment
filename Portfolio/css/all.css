@@ -1,0 +1,45 @@
+#home{
+	padding-top: 50px;
+    padding-bottom: 110px; 
+}
+
+#contact{
+    padding-top: 50px;
+    padding-bottom: 50px; 
+}
+
+
+.resume .resume-item {
+    padding: 0 0 30px 80px;
+    margin-top: -2px;    
+    border-left: 2px solid #000;
+    position: relative;
+}
+
+.resume .resume-item::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    left: -9px;
+    top: 0;
+    background: #fff;
+    border: 2px solid #000;    
+}
+
+.spad {
+    padding-top: 50px;
+    padding-bottom: 110px;
+    background-color: gray;
+}
+
+.session-title h2{
+	margin:80px auto;
+	font-size: 60px;
+}
+
+.resume-item h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}

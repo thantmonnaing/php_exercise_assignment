@@ -82,8 +82,9 @@
 		            			$dis_discount = $discount_item['discount'];
 		            			$dis_photo = $discount_item['photo'];
 		            	?>
-		                <div class="item">
+		                <div class="item">		                	
 		                    <div class="pad15">
+		                    	<a href="itemdetail.php?id=<?= $dis_id ?>" class="text-decoration-none text-dark">
 		                    	<img src="<?= $dis_photo ?>" class="img-fluid">
 		                        <p class="text-truncate"><?= $dis_name ?></p>
 		                        <p class="item-price">
@@ -100,6 +101,7 @@
 										<li class="list-inline-item"><i class='bx bxs-star-half' ></i></li>
 									</ul>
 								</div>
+								</a>
 
 								<button class="btn btn-outline-secondary add_to_card" data-id="<?= $dis_id ?>" data-codeno ="<?= $dis_codeno ?>"
 									data-photo="<?= $dis_photo ?>" data-name="<?= $dis_name ?>" data-price="<?= $dis_price ?>" data-discount="<?= $dis_discount ?>">Add to Cart</button>
@@ -140,8 +142,9 @@
 		            			$s_discount = $sales_item['discount'];
 		            			$s_photo = $sales_item['photo'];
 		            	?>
-		                <div class="item">
+		                <div class="item">		                	
 		                    <div class="pad15">
+		                    	<a href="itemdetail.php?id=<?= $s_id ?>" class="text-decoration-none text-dark">
 		                    	<img src="<?= $s_photo ?>" class="img-fluid">
 		                        <p class="text-truncate"><?= $s_name ?></p>
 		                        <p class="item-price">
@@ -162,6 +165,7 @@
 										<li class="list-inline-item"><i class='bx bxs-star-half' ></i></li>
 									</ul>
 								</div>
+							</a>
 
 								<button class="btn btn-outline-secondary add_to_card" data-id="<?= $s_id ?>" data-codeno ="<?= $s_codeno ?>"
 									data-photo="<?= $s_photo ?>" data-name="<?= $s_name ?>" data-price="<?= $s_price ?>" data-discount="<?= $s_discount ?>">Add to Cart</button>
@@ -204,6 +208,7 @@
 		            	?>
 		                <div class="item">
 		                    <div class="pad15">
+		                    	<a href="itemdetail.php?id=<?= $dis_id ?>" class="text-decoration-none text-dark">
 		                    	<img src="<?= $p_photo ?>" class="img-fluid">
 		                        <p class="text-truncate"><?= $p_name ?></p>
 		                        <p class="item-price">
@@ -224,7 +229,7 @@
 										<li class="list-inline-item"><i class='bx bxs-star-half' ></i></li>
 									</ul>
 								</div>
-
+							</a>
 								<button class="btn btn-outline-secondary add_to_card" data-id="<?= $p_id ?>" data-codeno ="<?= $p_codeno ?>"
 									data-photo="<?= $p_photo ?>" data-name="<?= $p_name ?>" data-price="<?= $p_price ?>" data-discount="<?= $p_discount ?>">Add to Cart</button>
 		                    </div>

@@ -54,9 +54,9 @@
                                 <tr>
                                     <td> <?php echo $i++ ?>. </td>
                                     <td> 
-                                        <div style="float: left;" class="pr-3">
+                                        <!-- <div style="float: left;" class="pr-3">
                                             <img src="<?= $photo ?>" class="img-fluid" id="item_image">
-                                        </div>
+                                        </div> -->
                                         <div>
                                             <h5><?= $codeno ?></h5>
                                             <p><?= $name ?></p>

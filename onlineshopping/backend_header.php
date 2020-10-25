@@ -69,7 +69,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="page-login.html">
+                        <a class="dropdown-item" href="signout.php">
                             <i class="icofont-logout"></i>
                             Logout
                         </a>
@@ -81,12 +81,27 @@
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 
         <aside class="app-sidebar">
-            <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+            <?php 
+                session_start();
+                if(isset($_SESSION['login_user'])){ 
+            ?>
+            <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="frontend/image/user.png" alt="User Image" width="50px">
+                <div>
+                  <p class="app-sidebar__user-name"><?= $_SESSION['login_user']['name']; ?></p>
+                  <p class="app-sidebar__user-designation"><?= $_SESSION['login_user']['rname']; ?></p>
+                </div>
+            </div>
+            <?php } else{ ?>
+
+                <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
                 <div>
                   <p class="app-sidebar__user-name">John Doe</p>
                   <p class="app-sidebar__user-designation">Frontend Developer</p>
                 </div>
+
             </div>
+
+            <?php } ?>            
             
             <ul class="app-menu">
                 

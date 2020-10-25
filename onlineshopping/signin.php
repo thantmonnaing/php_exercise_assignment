@@ -1,5 +1,6 @@
 <?php 
 	require("db_connect.php");
+	session_start();
 
 	$email = $_POST['email'];
 	$password = $_POST['password'];
@@ -18,11 +19,11 @@
 
 	$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-	var_dump($stmt->rowCount());
+	// var_dump($stmt->rowCount());
 
 	if($stmt->rowCount() <=0){
 
-		//invalid
+		//invalid email or password
 
 		if(!isset($_COOKIE['logincount'])){
 			$loginCount = 1;
@@ -31,16 +32,50 @@
 			$loginCount= $_COOKIE['logincount'];
 			$loginCount++;
 		}
+		setcookie("logincount", $loginCount, time()+10);
+
+		if ($loginCount >= 3) {
+			# code...
+
+			echo "<img src='frontend/image/user.png' style='width:100%, height:100vh; object-fit:cover'>";
+
+			setcookie('logincount','',time()-10);
+
+			echo "<script type=\"text/javascript\">
+				(function(){
+					setTimeout(function(){
+						location.href='login.php';
+					},10000);
+				})(); 
+				</script>";
+
+		}
+		else{
+			
+			$_SESSION['login_fail'] = 'Your current email and password is invalid';
+
+			header('location:login.php');
+
+		}
 
 	}else{
+		# success
+		
+		$_SESSION['login_user'] = $user;
+
+		$role = $user['rname'];
+
+		if ($role == "Admin") {
+			header('location:item_list.php');
+		}
+		else{
+			if (isset($_SESSION['cartURL'])) {
+				header("location:".$_SESSION['cartURL']);
+			}else{
+				header('location:index.php');
+			}
+		}
 
 	}
-	
-	// if($user){
-	// 	header('location:category_list.php');	
-	// }else{
-
-	// 	header('location:login.php');	
-	// }
 
  ?>	

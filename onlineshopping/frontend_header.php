@@ -1,5 +1,6 @@
 <?php 
     require('db_connect.php');
+    session_start();
  ?>
 
 <!DOCTYPE html>
@@ -51,17 +52,17 @@
 	<div class="container-fluid">
 
 		<div class="row shadow-sm p-3 bg-white rounded d-flex align-items-center">
-			<!-- LOGO -->
-			<div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 order-1">
-				<span class="d-xl-none d-lg-none d-md-inline d-sm-inline d-inline  p-1 navslidemenu">
-					<i class="icofont-navigation-menu"></i>
-				</span>
-				<img src="logo/logo_big.jpg" class="img-fluid d-xl-inline d-lg-inline d-md-none d-sm-none d-none">
+			<!-- LOGO -->			
+				<div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 order-1">
+					<span class="d-xl-none d-lg-none d-md-inline d-sm-inline d-inline  p-1 navslidemenu">
+						<i class="icofont-navigation-menu"></i>
+					</span>
+					<a href="index.php"><img src="logo/logo_big.jpg" class="img-fluid d-xl-inline d-lg-inline d-md-none d-sm-none d-none"></a>
 
-				<img src="logo/logo_med.jpg" class="img-fluid d-xl-none d-lg-none d-md-inline d-sm-none d-none" style="width: 100px">
+					<a href="index.php"><img src="logo/logo_med.jpg" class="img-fluid d-xl-none d-lg-none d-md-inline d-sm-none d-none" style="width: 100px"></a>
 
-				<img src="logo/logo.jpg" class="img-fluid d-xl-none d-lg-none d-md-none d-sm-inline d-inline pl-2" style="width: 30px">
-			</div>
+					<a href="index.php"><img src="logo/logo.jpg" class="img-fluid d-xl-none d-lg-none d-md-none d-sm-inline d-inline pl-2" style="width: 30px"></a>
+				</div>			
 			
 			<!-- Search Bar -->
 			<div class="col-xl-6 col-lg-6 col-md-4 col-sm-2 col-2 order-xl-2 order-lg-2 order-md-3 order-sm-3 order-3">
@@ -79,7 +80,37 @@
 						</div>
 					</div>
 					<div class="col-lg-4 col-10">
-						<a href="login.php" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none loginLink float-right"> Login | Sign-up </a>
+						<?php 
+							if(isset($_SESSION['login_user'])){ 
+						?>
+
+						<a href="javascript:void(0)" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none loginLink float-right" data-toggle="dropdown" role="button"> 
+							<?= $_SESSION['login_user']['name']; ?>
+							<i class="icofont-rounded-down"></i>
+						</a>
+
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						    <a class="dropdown-item" href="">
+						    	Profile
+						    </a>
+						  	<div class="dropdown-divider"></div>
+
+
+						    <a class="dropdown-item" href="#">
+						    	Order History
+						    </a>
+						  	<div class="dropdown-divider"></div>
+
+						    <a class="dropdown-item" href="signout.php">
+						    	Logout
+						    </a>
+						</div>
+
+						<?php } else{ ?>
+
+							<a href="login.php" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none loginLink float-right"> Login | Sign-up </a>
+
+						<?php } ?>
 
 						
 					</div>
@@ -96,13 +127,13 @@
 
 				<a href="cart.php" class="text-decoration-none d-xl-inline d-lg-inline d-md-inline d-sm-none d-none shoppingcartLink"> 
 					<i class="icofont-shopping-cart"></i> 
-					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti" id="cart"> 1 </span>
+					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti " id="cart_count"> 1 </span>
 					<span id="total"> 4,800 Ks </span>
 				</a>
 
 				<a href="" class="text-decoration-none d-xl-none d-lg-none d-md-none d-sm-inline-block d-inline-block shoppingcartLink"> 
 					<i class="icofont-shopping-cart"></i>
-					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 1 </span>
+					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti cart_count"> 1 </span>
 				</a>
 
 				<!-- App Download -->
@@ -162,7 +193,7 @@
 									$sname = $row['name'];
 
 								?>
-				              	<li><a class="dropdown-item" href="#"><?= $sname ?></a></li>
+				              	<li><a class="dropdown-item" href="subcategory.php?id=<?= $sid ?>"><?= $sname ?></a></li>
 
 				              	<?php } ?>
 				              
@@ -175,7 +206,7 @@
 			</div>
 
 			<div class="col-3">
-				<a href="" class="text-decoration-none text-dark font-weight-bold"> Promotion </a>
+				<a href="promotion.php" class="text-decoration-none text-dark font-weight-bold"> Promotion </a>
 			</div>
 			<div class="col-3">
 				<div class="hov-dropdown d-inline-block">
@@ -199,7 +230,7 @@
 					    		$b_logo = $brand_item['logo'];
 
 			    		?>
-	            			<a class="dropdown-item" href="#"><?= $b_name ?></a>
+	            			<a class="dropdown-item" href="brand.php?id=<?= $b_id ?>&name=<?= $b_name ?>"><?= $b_name ?></a>
 	            			<div class="dropdown-divider"></div>
             			<?php } ?>
           			</div>
@@ -292,14 +323,14 @@
 						$sname = $sub_row['name'];
 
 					?>
-				    	<a href="" class="py-2 text-white"> <?= $sname; ?> </a>
+				    	<a href="subcategory.php?id=<?= $sid ?>" class="py-2 text-white"> <?= $sname; ?> </a>
 				    <?php } ?> 
 				</div>
 				<hr>
 			<?php } ?>
 
 
-		  	<a href="#"> Poromotion </a>
+		  	<a href="promotion.php"> Poromotion </a>
 			<hr>
 
 		  	<a data-toggle="collapse" href="#brand" role="button" aria-expanded="false" aria-controls="brand">
@@ -323,7 +354,7 @@
 			  			$b_logo = $brand_item['logo'];
 
 			  			?>
-			  			<a href="" class="py-2 text-white"><?= $b_name ?></a>
+			  			<a href="brand.php?id=<?= $b_id ?>&name=<?= $b_name ?>" class="py-2 text-white"><?= $b_name ?></a>
 		  		<?php } ?>
 		  	</div>
 			<hr>
@@ -341,17 +372,24 @@
 			    <a href="" class="py-2"> Returns & Refunds </a>
 			</div>
 			<hr>
-
-			<a href="#"> Login | Signup</a>
+			<?php if(isset($_SESSION['login_user'])){ 
+			?>
+				<a class="dropdown-item" href="signout.php">
+					Logout
+				</a>
+			<?php } else{ ?>
+				<a href="login.php"> Login | Signup</a>
+			<?php } ?>				    
+			
 			<hr>
 
-			<a href="#"> Cart [ <span class="cartNoti"> 1 </span> ]  </a>
+			<a href="cart.php"> Cart [ <span class="cartNoti cart_count"> 1 </span> ]  </a>
 			<hr>
 
-			<img src="image/download.png" class="img-fluid ml-2 text-center" style="width: 150px">
+			<img src="frontend/image/download.png" class="img-fluid ml-2 text-center" style="width: 150px">
 			<hr>
 
-			<p class="text-white ml-3"> Copyright &copy; <img src="../logo/logo_wh_transparent.png" style="width: 20px; height: 20px"> 2019  </p>
+			<p class="text-white ml-3"> Copyright &copy; <img src="logo/logo_wh_transparent.png" style="width: 20px; height: 20px"> 2019  </p>
 
 		</div>
 	  	

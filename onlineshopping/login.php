@@ -11,6 +11,33 @@
 <div class="container my-5">
 	<div class="row justify-content-center">
 		<div class="col-5">
+			<?php if(isset($_SESSION['reg_success'])){ ?>
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  	<h2>  🎉 Congratulations </h2><h5> You have successfully <span class=""> Sign Up </span> </h5>
+				  	<hr>
+				  	<p> <?= $_SESSION['reg_success']; ?> </p>
+
+				  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    	<span aria-hidden="true">&times;</span>
+				  	</button>
+				</div>
+
+				<?php } unset($_SESSION['reg_success']); ?>
+				<!--  -->
+
+				<?php if(isset($_SESSION['login_fail'])){ ?>
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				  	<h2>  🚨 Oops! </h2>
+				  	<hr>
+				  	<p> <?= $_SESSION['login_fail']; ?> </p>
+
+				  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    	<span aria-hidden="true">&times;</span>
+				  	</button>
+				</div>
+				<?php } unset($_SESSION['login_fail']); ?> 
+				<!--  -->
+
 			<form action="signin.php" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
 					<label class="small mb-1" for="inputEmailAddress">Email</label>

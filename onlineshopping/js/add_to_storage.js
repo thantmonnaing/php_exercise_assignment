@@ -144,7 +144,38 @@ $(document).ready(function(){
 				}
 				var s_total = subtotal + "Ks";
 				$("#total").html(s_total);
-				$("#cart").html(total);
+				$(".cartNoti").html(total);
 			}
 
+
+
+			$(".checkoutbtn").on('click',function(){
+				
+				var note = $("#notes").val();
+				var items = localStorage.getItem('items');
+				var items_arr = JSON.parse(items);
+
+				var total = 0;
+				var subtotal = 0;
+				$.each(items_arr,function(i,v){
+					total+=v.qty;
+					subtotal+=(v.price * v.qty);
+				})
+
+				$.post('storeorder.php',{
+					cart: items_arr,
+					notes: note,
+					total: subtotal
+				},function(response){
+					localStorage.clear();					
+					location.href="ordersuccess.php";
+				});	
+				count();
+			})
+
 	})
+
+
+
+
+				

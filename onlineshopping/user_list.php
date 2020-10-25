@@ -1,5 +1,6 @@
 <?php 
 	require('backend_header.php');
+    require('db_connect.php');
 ?>
 
 <main class="app-content">
@@ -23,16 +24,37 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                    $sql = "SELECT users.* FROM users
+                                    INNER JOIN model_has_roles
+                                    ON users.id = model_has_roles.user_id
+                                    INNER JOIN roles
+                                    ON roles.id = model_has_roles.role_id
+                                    WHERE roles.name = 'Customer'";
+                                    $stmt = $conn->prepare($sql);
+                                    $stmt->execute();
+
+                                    $rows = $stmt->fetchAll();
+                                    $i = 1;
+                                    foreach ($rows as $row) {
+                                        $id = $row['id'];
+                                        $name = $row['name'];
+                                        $profile = $row['profile'];
+                                        $phone = $row['phone'];
+                                        $address = $row['address'];
+                                    
+                                ?>
                                 <tr>
-                                    <td> 1. </td>
-                                    <td> Thant Mon Naing</td>
-                                    <td> 09123654789<br>Yangon</td>
+                                    <td> <?= $i++ ?> </td>
+                                    <td> <?= $name ?> </td>
+                                    <td> <?= $phone ?> <br> <?= $address ?> </td>
                                     <td>
-                                        <a href="" class="btn btn-outline-danger">
+                                        <a href="user_delete.php?id=<?= $id ?>" class="btn btn-outline-danger">
                                             <i class="icofont-close"></i>
                                         </a>
                                     </td>
                                 </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
