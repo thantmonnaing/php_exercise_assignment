@@ -1,3 +1,16 @@
+<?php 
+    session_start();
+
+    if(!isset($_SESSION['login_user'])){
+        header('location:login.php');
+    }else{
+        if ($_SESSION['login_user']['rname'] == "customer") {
+            header('location:index.php');
+        }
+    }
+   
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,7 +51,7 @@
     
     <body class="app sidebar-mini">
         <header class="app-header">
-            <a class="app-header__logo" href="index.html">
+            <a class="app-header__logo" href="">
                 <img src="logo/logo_wh_transparent.png" style="width: 50px; height: 50px">
                 Shopules
             </a>
@@ -81,8 +94,7 @@
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 
         <aside class="app-sidebar">
-            <?php 
-                session_start();
+            <?php                 
                 if(isset($_SESSION['login_user'])){ 
             ?>
             <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="frontend/image/user.png" alt="User Image" width="50px">

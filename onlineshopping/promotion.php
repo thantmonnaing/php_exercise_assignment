@@ -1,5 +1,13 @@
 <?php 
+	ob_start();
+
 	require('frontend_header.php');
+
+	if (!isset($_SESSION['login_user'])){
+      	header("Location: login.php");
+      	exit();
+    }
+    
 	require('db_connect.php');
 	
 ?>
@@ -45,12 +53,12 @@
 									<img src="<?= $photo ?>" class="img-fluid" style="width: 160px;">
 									<p class="text-truncate" style="width: 160px;"><?= $name ?></p>
 									<p class="item-price">
-										<?php if($discount) { ?>
-							    			<span class="maincolor ml-3 font-weight-bolder">  <?= $price ?> Ks </span><br>
-							    			<span class="maincolor ml-3 font-weight-bolder"> <del> <?= $discount ?> Ks</del></span>
-							    		<?php } else{ ?>
-							    			<span class="maincolor ml-3 font-weight-bolder"> <?= $price ?> Ks </span>
-							    		<?php } ?>
+										<?php if($discount) {?>
+			                        	<strike> <?= $price ?> Ks </strike> 
+			                        	<span class="d-block"> <?= $discount ?> Ks</span>
+				                        <?php } else{ ?>
+				                        	<span class="d-block"> <?= $price ?> Ks</span>
+				                        <?php } ?>	
 									</p>
 
 									<div class="star-rating">

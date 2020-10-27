@@ -11,16 +11,7 @@
 <div class="container my-5">
 	<div class="row justify-content-center">
 		<div class="col-8">
-			<?php if(isset($_SESSION['password'])){ ?>
-					<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					  	<p> <?= $_SESSION['password']; ?> </p>
-
-					  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					    	<span aria-hidden="true">&times;</span>
-					  	</button>
-					</div>
-			<?php } unset($_SESSION['password']); ?>
-
+			
 			<form action="signup.php" method="POST">
 				<div class="form-row">
 					<div class="col-md-6">

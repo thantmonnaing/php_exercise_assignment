@@ -50,12 +50,12 @@
 									<img src="<?= $b_photo ?>" class="img-fluid" style="width: 160px;">
 									<p class="text-truncate" style="width: 160px;"><?= $b_name ?></p>
 									<p class="item-price">
-										<?php if($b_discount) { ?>
-							    			<span class="maincolor ml-3 font-weight-bolder">  <?= $b_price ?> Ks </span><br>
-							    			<span class="maincolor ml-3 font-weight-bolder"> <del> <?= $b_discount ?> Ks</del></span>
-							    		<?php } else{ ?>
-							    			<span class="maincolor ml-3 font-weight-bolder"> <?= $b_price ?> Ks </span>
-							    		<?php } ?>
+										<?php if($b_discount) {?>
+			                        	<strike> <?= $b_price ?> Ks </strike> 
+			                        	<span class="d-block"> <?= $b_discount ?> Ks</span>
+				                        <?php } else{ ?>
+				                        	<span class="d-block"> <?= $b_price ?> Ks</span>
+				                        <?php } ?>	
 									</p>
 
 									<div class="star-rating">

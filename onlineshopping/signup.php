@@ -15,7 +15,6 @@
 
 	$status = 0;
 
-	if($password === $confirm_password){
 		$sql = "INSERT INTO users (name,profile,email,password,phone,address,status) VALUES(:v1,:v2,:v3,:v4,:v5,:v6,:v7)";
 		$stmt = $conn->prepare($sql);
 		$stmt->bindParam(':v1',$name);
@@ -41,23 +40,5 @@
 		unset($_SESSION['signup_data']);
 		
 		header('location:login.php');
-	}else{	
-		
-		// $obj = array(
-		// 	'name' =>$name ,
-		// 	'phone' =>$phone,
-		// 	'email' =>$email,
-		// 	'address' =>$address
-		//  );
-
-
-		session_start();
-		$_SESSION['password'] = 'Password and Confirm Password not match!';
-		// $_SESSION['signup_data'] = $obj;
-		
-		header('location:register.php');
-	}
-
-	
 
 ?>

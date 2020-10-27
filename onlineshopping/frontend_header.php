@@ -90,14 +90,18 @@
 						</a>
 
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <a class="dropdown-item" href="">
+						    <a class="dropdown-item" href="profile.php">
 						    	Profile
 						    </a>
 						  	<div class="dropdown-divider"></div>
 
-
-						    <a class="dropdown-item" href="#">
+							<a class="dropdown-item" href="order_history.php">
 						    	Order History
+						    </a>
+						  	<div class="dropdown-divider"></div>
+
+						    <a class="dropdown-item" href="change_password.php">
+						    	Change Password
 						    </a>
 						  	<div class="dropdown-divider"></div>
 

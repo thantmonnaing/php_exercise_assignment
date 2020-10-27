@@ -108,12 +108,12 @@
 						    	<h5 class="card-title text-truncate"><?= $i_name ?></h5>
 						    	
 						    	<p class="item-price">
-						    		<?php if($i_discount) { ?>
-						    			<span class="maincolor ml-3 font-weight-bolder">  <?= $i_price ?> Ks </span><br>
-						    			<span class="maincolor ml-3 font-weight-bolder"> <del> <?= $i_discount ?> Ks</del></span>
-						    		<?php } else{ ?>
-						    			<span class="maincolor ml-3 font-weight-bolder">  <?= $i_price ?> Ks </span>
-						    		<?php } ?>
+						    		<?php if($i_discount) {?>
+			                        	<strike> <?= $i_price ?> Ks </strike> 
+			                        	<span class="d-block"> <?= $i_discount ?> Ks</span>
+			                        <?php } else{ ?>
+			                        	<span class="d-block"> <?= $i_price ?> Ks</span>
+			                        <?php } ?>						    		
 						    	</p>
 
 		                        <div class="star-rating">

@@ -1,5 +1,12 @@
 <?php 
+	ob_start();
+
 	require('frontend_header.php');
+
+	if (!isset($_SESSION['login_user'])){
+      	header("Location: login.php");
+      	exit();
+    }
 	require('db_connect.php');
 
 	$item_id = $_GET['id'];
