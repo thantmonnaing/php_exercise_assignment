@@ -1,9 +1,24 @@
+h1,h2,h3,h4,h5,h6{
+    font-family: Raleway;
+}
+
+p{
+    font-family: Lobster;
+}
+
+
+
 #home{
 	padding-top: 50px;
     padding-bottom: 110px; 
 }
 
 #contact{
+    padding-top: 50px;
+    padding-bottom: 50px; 
+}
+
+#skills{
     padding-top: 50px;
     padding-bottom: 50px; 
 }
@@ -31,7 +46,7 @@
 .spad {
     padding-top: 50px;
     padding-bottom: 110px;
-    background-color: gray;
+    background-color: #f2f3f5;
 }
 
 .session-title h2{
@@ -42,4 +57,39 @@
 .resume-item h3 {
     font-size: 30px;
     margin-bottom: 10px;
+}
+
+.p_text_style{
+    font-size: 22px;
+}
+
+.skills .progress {
+    height: 50px;
+    display: block;
+    background: none;
+}
+
+.skills .progress-bar {
+    width: 1px;
+    height: 10px;
+    transition: .9s;
+    background-color: #007bff;
+}
+
+.skills .progress .skill {
+    padding: 10px 0;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.skills .progress .skill .val {
+    float: right;
+    font-style: normal;
+}
+
+.skills .progress-bar-wrap {
+    background: #f2f3f5;
 }
